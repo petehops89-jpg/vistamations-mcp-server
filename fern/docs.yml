@@ -1,0 +1,9 @@
+instances:
+  - url: https://VISTAMATIONS.docs.buildwithfern.com
+title: Vistamations | Documentation
+navigation:
+  - api: API Reference
+    paginated: true
+colors:
+  accentPrimary: '#ffffff'
+  background: '#000000'
