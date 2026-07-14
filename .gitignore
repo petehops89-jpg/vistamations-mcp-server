@@ -5,3 +5,5 @@ dist/
 *.log
 __pycache__/
 venv/
+
+core_engine/scratchpad/
