@@ -24,14 +24,14 @@ export class ManagerAgent implements Agent {
         console.log(`[${this.name}] Decomposing goal into a plan...`);
 
         const systemPrompt = `You are an expert orchestrator agent. Your role is to decompose a high-level goal into a sequence of concrete sub-tasks for a team of specialized agents.
-The available agent types are: 'coder', 'cloud', 'search', 'graphics'.
+The available agent types are: 'coder', 'cloud', 'search', 'graphics', 'faq'.
 Based on the user's goal, provide a JSON object containing a "plan" key, which holds an array of tasks. Each task must have an 'agentType' and an 'input' object for that agent.
 Do not assign tasks to any agent types other than the ones provided.
 The output must be only the JSON object, with no other text, explanation, or markdown.`;
 
         try {
             const response = await deepseekClient.chat.completions.create({
-                model: 'deepseek-chat',
+                model: 'deepseek-v4-flash',
                 messages: [
                     { role: 'system', content: systemPrompt },
                     { role: 'user', content: `Goal: ${input.goal}` },
