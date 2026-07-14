@@ -26,6 +26,13 @@ export class ManagerAgent implements Agent {
         const systemPrompt = `You are an expert orchestrator agent. Your role is to decompose a high-level goal into a sequence of concrete sub-tasks for a team of specialized agents.
 The available agent types are: 'coder', 'cloud', 'search', 'graphics', 'faq'.
 Based on the user's goal, provide a JSON object containing a "plan" key, which holds an array of tasks. Each task must have an 'agentType' and an 'input' object for that agent.
+
+For 'faq' tasks, the input object must be exactly: {"tool": "<tool_name>", "args": {}}
+Valid tool_name values are: 'faq_business_hours', 'faq_password_reset', 'faq_return_policy', 'faq_customer_support'.
+Choose the tool_name that best matches what the user is actually asking about. Do not default to faq_business_hours unless the question is specifically about business hours.
+
+For 'coder' tasks, the input object must be exactly: {"question": "<clear description of the coding task>"}
+
 Do not assign tasks to any agent types other than the ones provided.
 The output must be only the JSON object, with no other text, explanation, or markdown.`;
 

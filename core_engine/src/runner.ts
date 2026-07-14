@@ -9,7 +9,7 @@ async function run() {
     const initialTask: Task = {
         id: `task-${Date.now()}-manage`,
         agentType: 'manager',
-        input: { goal: 'Write a TypeScript function that reverses a string' },
+        input: { goal: 'Handle a sample customer service inquiry about return policy' },
         status: 'pending',
     };
     stateManager.enqueueTask(initialTask);
